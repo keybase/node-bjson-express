@@ -11,7 +11,8 @@ lib/%.js: src/%.iced
 
 $(BUILD_STAMP): \
 	lib/main.js \
-        lib/body_parser.js
+        lib/body_parser.js \
+        lib/respond.js
 	date > $@
 
 clean:
