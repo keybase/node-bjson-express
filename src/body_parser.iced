@@ -22,7 +22,7 @@ parse_msgpack_body = ({req, res, opts }, cb) ->
 
 #===============================================================
 
-exports.msgpack_parser = (opts = {}) -> (req, res, next) ->
+exports.msgpack_parser = msgpack_parser = (opts = {}) -> (req, res, next) ->
   err = null
   go = false
 
