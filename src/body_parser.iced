@@ -3,7 +3,7 @@
 getBody                  = require 'raw-body'
 bodyParser               = require 'body-parser'
 
-{mime_types,decode,decode_json_obj} = require 'keybase-jbson-core'
+{mime_types,decode,decode_json_obj} = require 'keybase-bjson-core'
 
 #===============================================================
 
