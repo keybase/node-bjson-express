@@ -1,0 +1,35 @@
+{
+  "name": "keybase-bjson-express",
+  "version": "0.0.0",
+  "description": "BJSON Express Body parser",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/keybase/node-bjson-express"
+  },
+  "keywords": [
+    "BJSON",
+    "Keybase",
+    "Express"
+  ],
+  "author": "Maxwell Krohn",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/keybase/node-bjson-express/issues"
+  },
+  "homepage": "https://github.com/keybase/node-bjson-express",
+  "dependencies": {
+    "raw-body": "^1.1.5",
+    "type-is": "^1.2.0",
+    "body-parser": "^1.2.0",
+    "iced-utils": "^0.1.13",
+    "iced-coffee-script": "^1.7.1-b"
+  },
+  "devDependencies": {
+    "iced-test": "0.0.15",
+    "minimist": "^0.1.0"
+  }
+}
