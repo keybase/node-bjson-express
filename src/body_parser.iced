@@ -3,21 +3,19 @@
 getBody                  = require 'raw-body'
 bodyParser               = require 'body-parser'
 
-{mime_types,decode,decode_json_obj} = require 'keybase-bjson-core'
+{mime_types_r,mime_types,decode,decode_json_obj} = require 'keybase-bjson-core'
 
 #===============================================================
 
-parse_msgpack_body = ({req, res, opts }, cb) ->
+parse_msgpack_body = ({req, res, opts, encoding}, cb) ->
   params = 
     limit    : opts.limit || '1000kb'
     length   : req.headers['content-length']
-    encoding : if opts.base64 then 'base64' else 'binary'
+    encoding : null
   await getBody req, params, defer err, buf
   unless err?
-    try
-      req.body = decode { buf, mpack : true } 
-    catch e
-      err = e
+    [err, body] = decode { buf, encoding }
+    req.body = body unless err?
   cb err
 
 #===============================================================
@@ -28,11 +26,8 @@ exports.msgpack_parser = msgpack_parser = (opts = {}) -> (req, res, next) ->
 
   ct = req.headers['content-type']
 
-  if not hasBody(req) then # noop
-  else if ct is mime_types.msgpack   then go = true
-  else if ct is mime_types.msgpack64 then opts.base64 = go = true
-  
-  if go then await parse_msgpack_body {req, res, opts}, defer err
+  if hasBody(req) and (encoding = mime_types_r[ct])? and (encoding in ['msgpack', 'msgpack64'])
+    await parse_msgpack_body {req, res, opts, encoding}, defer err
 
   next err
 
