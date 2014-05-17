@@ -1,6 +1,6 @@
 {
   "name": "keybase-bjson-express",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "BJSON Express Body parser",
   "main": "lib/main.js",
   "scripts": {
