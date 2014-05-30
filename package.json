@@ -27,7 +27,7 @@
     "body-parser": "^1.2.0",
     "iced-utils": "^0.1.13",
     "iced-coffee-script": "^1.7.1-b",
-    "keybase-bjson-core": "*"
+    "keybase-bjson-core": ">=0.0.4"
   },
   "devDependencies": {
     "iced-test": "0.0.15",
